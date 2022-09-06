@@ -40,7 +40,7 @@ if single_character == five_character_word[4]:
     character_count = character_count + 1
     print(single_character + " found at index 4")
 
-   
+ 
 if int(character_count) >= 2:
     print(str(character_count) + " instances of " + str(single_character) + " found in " + str(five_character_word))  
 
