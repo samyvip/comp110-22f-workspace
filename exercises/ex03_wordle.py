@@ -6,6 +6,7 @@ WHITE_BOX: str = "\U00002B1C"
 YELLOW_BOX: str = "\U0001F7E8"
 GREEN_BOX: str = "\U0001F7E9"
 
+
 def contains_char(word: str, character: str) -> bool:
     """Searches for character."""
     assert len(character) == 1
@@ -20,6 +21,7 @@ def contains_char(word: str, character: str) -> bool:
         return True
     else:
         return False
+
 
 def emojified(guess: str, secret: str) -> str:
     """Calls contains_char fn to test for colored box codification."""
@@ -37,16 +39,14 @@ def emojified(guess: str, secret: str) -> str:
         word_index += 1
     return guess_emoji
 
-def input_guess(expected_length: int) -> bool:
+
+def input_guess(expected_length: int) -> str:
     """Prompts the user for a guess of the expected length."""
     guess: str = input(f"Enter a {expected_length} character word: ")
-    if len(guess) == expected_length:
-        return guess
-    else:
-        while len(guess) != expected_length:
-            guess: str = input(f"That wasn't {expected_length} chars! Try again: ")
-            if len(guess) == expected_length:
-                return guess
+    while len(guess) != expected_length:
+        guess = input(f"That wasn't {expected_length} chars! Try again: ")
+    return guess
+
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
@@ -66,5 +66,6 @@ def main() -> None:
     else:
         print("X/6 - Sorry, try again tomorrow!")
 
+
 if __name__ == "__main__":
-    main()
+    main
