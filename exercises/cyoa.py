@@ -1,12 +1,6 @@
 """Choose Your Own Adventure Game."""
-# number guessing game: 1-100, guessing higher or lower
-# keep track of how many guesses
-# prediction based on guess?
-# if you predicted in < times, lucky
 
 __author__ = "730548773"
-
-
 
 points: int
 player: str = ""
@@ -19,6 +13,7 @@ THUMBS_DOWN: str = "\U0001F44E"
 THINKING_EMOJI: str = "\U0001F914"
 CLAPPING_EMOJI: str = "\U0001F44F"
 CONFETTI_EMOJI: str = "\U0001F389"
+
 
 def main() -> None:
     """Entrypoint of the game."""
@@ -38,7 +33,7 @@ def main() -> None:
         print(f"{SAD_EMOJI} Aw, it was nice to meet you! Bye! {WAVING_EMOJI}")
         quit()
     keep_playing: bool = True
-    while keep_playing == True:
+    while keep_playing is True:
         loop_choice: int = int(input((f"Okay {player}, currently you have {points} points! Would you like to 1: reset your points, start over, and play the whole game again, 2: play just the second stage with your current number of points, or 3: stop playing? ")))
         while loop_choice < 1 or loop_choice > 3:
             loop_choice = int(input(f"{STOP_EMOJI} That's not a valid option! Please try again: "))
@@ -68,14 +63,14 @@ def starting_number(points: int) -> int:
     guess: int = int(input(f"I am thinking of a number from 1-20. What number am I thinking of? {THINKING_EMOJI}"))
     while guess != secret:
         if guess > secret:
-            guess = int(input(f"Unfortunately, your guess is too high! Please guess again: "))
+            guess = int(input("Unfortunately, your guess is too high! Please guess again: "))
             points += 1
         elif guess < secret:
-            guess = int(input(f"Unfortunately, your guess is too low! Please guess again: "))
+            guess = int(input("Unfortunately, your guess is too low! Please guess again: "))
             points += 1
     if guess == secret:
         print(f"Yayyy!!! You got it! {CLAPPING_EMOJI}")
-        return points
+    return points
 
 
 def prediction() -> None:
@@ -144,6 +139,7 @@ def prediction() -> None:
         else:
             points += 1
             print(f"Unfortunately, that is not the right answer {SAD_EMOJI}.")
+
 
 if __name__ == "__main__":
     main()
